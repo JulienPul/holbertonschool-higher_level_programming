@@ -1,4 +1,4 @@
-#!/usr/bin/puthon3
+#!/usr/bin/python3
 def update_dictionary(a_dictionary, key, value):
     """
     Updates a_dictionary by setting a_dictionary[key] = value,
