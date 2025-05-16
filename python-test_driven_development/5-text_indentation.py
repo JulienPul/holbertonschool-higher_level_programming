@@ -8,7 +8,7 @@ with two new lines after each of these characters: '.', '?', and ':'.
 
 
 def text_indentation(text):
-    """Write a function that prints a text with 2 new lines after each of 
+    """Write a function that prints a text with 2 new lines after each of
     these characters: ., ? and :
     Prototype: def text_indentation(text):
     """
