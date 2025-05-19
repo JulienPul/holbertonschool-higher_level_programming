@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """
-Module 2-square
+Module 2-square:
 defines a square by: (based on 1-square.py)
 """
 
 
 class Square:
+    """Represents a square defined by its side length."""
     def __init__(self, size=0):
         """Private instance attribute: size
         size must be an integer, otherwise raise a TypeError exception
