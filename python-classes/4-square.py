@@ -17,6 +17,7 @@ class Square:
         with the message size must be >= 0
         """
         self.size = size
+
     @property
     def size(self):
         """ property def size(self): to retrieve it"""
