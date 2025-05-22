@@ -20,7 +20,7 @@ class Rectangle:
     @property
     def width(self):
         return self.__width
-    
+
     @width.setter
     def width(self, value):
         """Set the width of the rectangle.
@@ -52,7 +52,7 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-        
+
     def area(self):
         """Return the area of the rectangle."""
         return self.__width * self.__height
@@ -64,7 +64,8 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Return the printable representation of the rectangle with '#' characters."""
+        """Return the printable representation of
+        the rectangle with '#' characters."""
         if self.__width == 0 or self.__height == 0:
             return ""
         lines = ["#" * self.width for i in range(self.__height)]
