@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module 2-rectangle:
-define a rectangle perimeter and area"""
+Defines a class Rectangle with width, height,
+area, and perimeter."""
 
 
 class Rectangle:
