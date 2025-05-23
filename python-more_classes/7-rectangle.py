@@ -72,7 +72,7 @@ class Rectangle:
         the rectangle with '#' characters."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        lines = [{Rectangle.print_symbol} * self.width for i in range(self.__height)]
+        lines = [str(self.print_symbol) * self.width for i in range(self.__height)]
         return "\n".join(lines)
 
     def __repr__(self):
