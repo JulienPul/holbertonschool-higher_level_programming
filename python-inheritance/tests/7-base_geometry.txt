@@ -1,0 +1,32 @@
+> > > BaseGeometry = **import**('7-base\_geometry').BaseGeometry
+> > > b = BaseGeometry()
+> > >
+> > > # area() is not implemented in BaseGeometry
+> > >
+> > > b.area()
+> > > Traceback (most recent call last):
+> > > ...
+> > > Exception: area() is not implemented
+
+> > > # Valid integer values should pass without error
+> > >
+> > > b.integer\_validator("width", 5)
+> > > b.integer\_validator("height", 100)
+
+> > > # Zero or negative values should raise ValueError
+> > >
+> > > b.integer\_validator("width", 0)
+> > > Traceback (most recent call last):
+> > > ...
+> > > ValueError: width must be greater than 0
+> > > b.integer\_validator("size", -10)
+> > > Traceback (most recent call last):
+> > > ...
+> > > ValueError: size must be greater than 0
+
+> > > # Non-integer values should raise TypeError
+> > >
+> > > b.integer\_validator("num", "3")
+> > > Traceback (most recent call last):
+> > > ...
+> > > TypeError: num must be an integer
