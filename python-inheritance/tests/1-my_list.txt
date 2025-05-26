@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# on teste l’affichage et qu’on n’altère pas la liste originale
+python3 - << 'EOF'
+MyList = __import__('1-my_list').MyList
+
+# cas simple
+ml = MyList()
+for i in [1, 4, 2, 3, 5]:
+    ml.append(i)
+
+# on vérifie l’affichage “brut”
+print(ml)            # => [1, 4, 2, 3, 5]
+
+# on capture l’affichage trié
+ml.print_sorted()    # => [1, 2, 3, 4, 5]
+
+# on vérifie que 'ml' n’a pas changé
+print(ml)            # => [1, 4, 2, 3, 5]
+EOF
