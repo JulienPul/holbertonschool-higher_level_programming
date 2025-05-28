@@ -11,19 +11,21 @@ class VerboseList(list, ABC):
     @abstractmethod
     def append(self, item):
         super().append(item)
-        return print("“Added {} to the list.”", (item))
+        print(f"Added [{item}] to the list.")
 
     @abstractmethod
     def extend(self, items):
         super().extend(items)
-        return ("“Extended the list with [x] items.”")
+        print(f"Extended the list with [{len(items)}] items.")
 
     @abstractmethod
     def remove(self, item):
+        print(f"Removed [{item}] from the list.")
         super().remove(item)
-        return ("“Removed {} from the list.”", (item))
 
     @abstractmethod
     def pop(self, index=-1):
-        super().pop(index)
-        return ("“Popped {} from the list.”", (index))
+        item = self[index]if -len(self) <= index < len(self)else None
+        result = super().pop(index)
+        print(f"Popped [{result}] from the list.")
+        return result
