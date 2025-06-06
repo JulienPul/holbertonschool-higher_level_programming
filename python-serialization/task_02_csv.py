@@ -16,5 +16,4 @@ def convert_csv_to_json(filename):
         return True
         
     except FileNotFoundError:
-        print(f"Error: File '{filename}' not found.")
         return False
