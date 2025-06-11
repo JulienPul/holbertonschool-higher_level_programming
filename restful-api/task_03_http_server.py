@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Simple HTTP API using the http.server module."""
-
 import http.server
 import json
 
