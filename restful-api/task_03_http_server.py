@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 import http.server
-import socketserver
 import json
 
 
-class SimpleAPIHandler(http.server.SimpleHTTPRequestHandler):
+class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/":
             self.send_response(200)
@@ -42,6 +41,6 @@ class SimpleAPIHandler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     PORT = 8000
-    with socketserver.TCPServer(("", PORT), SimpleAPIHandler) as httpd:
+    with http.server.HTTPServer(("", PORT), SimpleAPIHandler) as httpd:
         print(f"Serving on http://localhost:{PORT}")
         httpd.serve_forever()
