@@ -44,3 +44,4 @@ if __name__ == "__main__":
     with http.server.HTTPServer(("", PORT), SimpleAPIHandler) as httpd:
         print(f"Serving on http://localhost:{PORT}")
         httpd.serve_forever()
+
