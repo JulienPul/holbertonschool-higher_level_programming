@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
+"""Simple API server using http.server for educational purposes."""
 import http.server
 import json
 
 
 class SimpleAPIHandler(http.server.BaseHTTPRequestHandler):
+    """Custom handler to manage API routes with GET requests."""
     def do_GET(self):
+        """Handle GET requests to different API endpoints."""
         if self.path == "/":
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
@@ -44,4 +47,3 @@ if __name__ == "__main__":
     with http.server.HTTPServer(("", PORT), SimpleAPIHandler) as httpd:
         print(f"Serving on http://localhost:{PORT}")
         httpd.serve_forever()
-
