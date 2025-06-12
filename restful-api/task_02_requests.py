@@ -12,7 +12,7 @@ def fetch_and_print_posts():
         for post in posts:
             print(post["title"])
     else:
-        print("❌ Erreur lors de la récupération des posts.")
+        print("Erreur lors de la récupération des posts.")
 
 def fetch_and_save_posts():
     url = "https://jsonplaceholder.typicode.com/posts"
@@ -27,6 +27,6 @@ def fetch_and_save_posts():
             writer.writeheader()
             writer.writerows(data)
 
-        print("✅ Fichier 'posts.csv' généré avec succès.")
+        print("Fichier 'posts.csv' généré avec succès.")
     else:
-        print("❌ Échec de la récupération des données pour CSV.")
+        print("Échec de la récupération des données pour CSV.")
