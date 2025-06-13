@@ -14,7 +14,6 @@ app.config["JWT_SECRET_KEY"] = "ta_cle_secrete_tres_longue"
 auth = HTTPBasicAuth()
 jwt = JWTManager(app)
 
-# Utilisateurs simulés avec rôles
 users = {
     "user1": {
         "username": "user1",
@@ -49,7 +48,7 @@ def login():
     user = users.get(username)
     if user:
         access_token = create_access_token(identity={"username": username, "role": user["role"]})
-        return jsonify(access_token=access_token)
+        return jsonify({"access_token": access_token})
     return jsonify({"error": "Invalid credentials"}), 401
 
 @app.route("/jwt-protected", methods=["GET"])
