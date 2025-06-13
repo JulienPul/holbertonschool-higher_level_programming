@@ -14,6 +14,7 @@ app.config["JWT_SECRET_KEY"] = "ta_cle_secrete_tres_longue"
 auth = HTTPBasicAuth()
 jwt = JWTManager(app)
 
+# Utilisateurs en mémoire
 users = {
     "user1": {
         "username": "user1",
@@ -41,33 +42,38 @@ def basic_protected():
     return jsonify({"message": "Basic Auth: Access Granted"})
 
 @app.route("/login", methods=["POST"])
-@auth.login_required
 def login():
-    """Connexion avec Basic Auth et retour d'un token JWT"""
-    username = auth.current_user()
+    """Connexion via JSON et génération du token JWT"""
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "Invalid credentials"}), 401
+
+    username = data.get("username")
+    password = data.get("password")
     user = users.get(username)
-    if user:
-        access_token = create_access_token(identity={"username": username, "role": user["role"]})
-        return jsonify({"access_token": access_token})
-    return jsonify({"error": "Invalid credentials"}), 401
+
+    if not user or not check_password_hash(user["password"], password):
+        return jsonify({"error": "Invalid credentials"}), 401
+
+    access_token = create_access_token(identity={"username": username, "role": user["role"]})
+    return jsonify({"access_token": access_token})
 
 @app.route("/jwt-protected", methods=["GET"])
 @jwt_required()
 def jwt_protected():
     """Route protégée avec JWT"""
-    current_user = get_jwt_identity()
     return jsonify({"message": "JWT Auth: Access Granted"})
 
 @app.route("/admin-only", methods=["GET"])
 @jwt_required()
 def admin_only():
-    """Route accessible uniquement aux admins"""
+    """Route réservée aux admins"""
     current_user = get_jwt_identity()
     if current_user.get("role") != "admin":
         return jsonify({"error": "Admin access required"}), 403
     return jsonify({"message": "Admin Access: Granted"})
 
-# GESTION DES ERREURS JWT
+# Gestion des erreurs JWT
 
 @jwt.unauthorized_loader
 def handle_missing_token(err):
