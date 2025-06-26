@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Lists all states where name matches the argument from the database hbtn_0e_0_usa.
 Usage: ./2-my_filter_states.py <mysql username> <mysql password> <database name> <state name>
