@@ -2,17 +2,18 @@
 """
 Lists all states with a name starting with N (upper N)
 from the database hbtn_0e_0_usa.
-
-Usage: ./1-filter_states.py <mysql username> <mysql password> <database name>
 """
+
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
+    # Get arguments
     username = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]
 
+    # Connect to database
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -24,7 +25,8 @@ if __name__ == "__main__":
     cur = db.cursor()
     cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
-    for row in cur.fetchall():
+    rows = cur.fetchall()
+    for row in rows:
         print(row)
 
     cur.close()
