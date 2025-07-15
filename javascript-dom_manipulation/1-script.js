@@ -1,3 +1,4 @@
-('header').addEventListener ('click', () =>{
-Headers.style.color = '#FF0000'
+const header = document.querySelector('header');
+header.addEventListener ('click', () =>{
+header.style.color = '#FF0000'
 });
