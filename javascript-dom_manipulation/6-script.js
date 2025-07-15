@@ -4,5 +4,5 @@ fetch('https://swapi-api.hbtn.io/api/people/5/?format=json')
         document.querySelector('#character').textContent =data.name;
     })
     .catch(error => {
-        error.('error:', error);
+        console.error('error:', error);
     });
