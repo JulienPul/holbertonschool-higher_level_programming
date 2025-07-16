@@ -12,11 +12,11 @@ def generate_invitations(template, attendees):
         return
     
     if template == '':
-        print('template must not be empty')
+        print("Template is empty, no output files generated.")
         return
     
     if not attendees:
-        print('attendees must not be empty')
+        print("No data provided, no output files generated.")
         return
     
     i = 1
