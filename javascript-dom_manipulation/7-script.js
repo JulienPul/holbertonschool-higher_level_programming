@@ -1,8 +1,15 @@
-fectch('https://swapi-api.hbtn.io/api/films/?format=json')
-    .then (response => response.json())
-    .then (data => {
-        document.querySelector('#list_movies').testContent = data.title;
-    }
+fetch('https://swapi-api.hbtn.io/api/films/?format=json')
+    .then(response => response.json())
+    .then(data => {
+        const list = document.querySelector('#list_movies');
+        const movies = data.results;
+
+        movies.forEach(movie => {
+            const li = document.createElement('li');
+            li.textContent = movies.title;
+            list.appendChild(li);
+        });
+    })
     .catch(error => {
         console.error('error:', error);
     });
