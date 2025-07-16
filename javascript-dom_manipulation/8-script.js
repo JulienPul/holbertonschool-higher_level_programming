@@ -1,4 +1,5 @@
-fetch('https://hellosalut.stefanbohacek.dev/?lang=fr')
+document.addEventListener('DomContentLoaded', () => {
+    fetch('https://hellosalut.stefanbohacek.dev/?lang=fr')
     .then(response => response.json())
     .then(data => {
         document.getElementById('hello').textContent = data.hello;
@@ -6,3 +7,4 @@ fetch('https://hellosalut.stefanbohacek.dev/?lang=fr')
     .catch(error => {
         console.error('error', error);
     });
+});
