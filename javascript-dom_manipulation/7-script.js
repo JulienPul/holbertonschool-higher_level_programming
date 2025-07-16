@@ -6,7 +6,7 @@ fetch('https://swapi-api.hbtn.io/api/films/?format=json')
 
         movies.forEach(movie => {
             const li = document.createElement('li');
-            li.textContent = movies.title;
+            li.textContent = movie.title;
             list.appendChild(li);
         });
     })
