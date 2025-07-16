@@ -11,3 +11,10 @@ def generate_invitations(template, attendees):
         print('attendees must be a list of dictionaries')
         return
     
+    if template == '':
+        print('template must not be empty')
+        return
+    
+    if not attendees:
+        print('attendees must not be empty')
+        return
