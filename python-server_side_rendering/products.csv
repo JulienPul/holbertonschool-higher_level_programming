@@ -1,5 +1,4 @@
-products = [
-['id', 'name', 'category', 'price'],
-[3, 'lamp', 'Electronics', 59.99],
-[4, 'plant', 'Home Goods', 39.99],
-]
+
+id, name, category, price,
+3, lamp, Electronics, 59.99,
+4, plant, Home Goods, 39.99,
